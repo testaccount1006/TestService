@@ -4,21 +4,22 @@ describe Company do
 
 	describe "create_company method" do 
 
-		it "should reject if no authentication token is used" do 
-			post :create_company
-			response.response_code.should == 401
+		it "accept a user with only necessary data assigned" do 
+			company = Company.new(:address => "Address", :city => "Some city", :country => "DK", :name => "TEST A/S")
+			company.valid?.should == true
 		end
 		
 		it "should reject if not all data present" do 
-			data = {
-				:name => "Test company",
-				:address => "Test address", 
-				:city => "Aarhus"
-			}	
-			
-			request.env['RAW_POST_DATA'] = data.to_json
-			post :create_company
-			response.response_code.should == 500
+			company = Company.new(:address => "Address", :country => "DK", :name => "TEST A/S")
+			company.valid?.should == false
+		end
+
+		it "should validate the format of email" do 
+			company = Company.new(:address => "Address", :city => "Some city", :country => "DK", :name => "TEST A/S", :email => "test@test.dk")
+			company.valid?.should == true
+
+			company.email = "test.dk"
+			company.valid?.should == false
 		end
 			
 	end

@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.12'
-gem 'acts_as_versioned'
+gem 'vestal_versions', :git => 'git://github.com/laserlemon/vestal_versions'
 
 
 # Bundle edge Rails instead:

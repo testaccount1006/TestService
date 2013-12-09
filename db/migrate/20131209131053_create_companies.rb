@@ -5,7 +5,7 @@ class CreateCompanies < ActiveRecord::Migration
       t.text :address
       t.text :city
       t.text :country
-      t.text :e-mail
+      t.text :email
       t.integer :phone
 
       t.timestamps
