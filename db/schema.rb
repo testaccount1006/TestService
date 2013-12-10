@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131209142812) do
+ActiveRecord::Schema.define(:version => 20131209214649) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "access_token"
@@ -28,6 +28,14 @@ ActiveRecord::Schema.define(:version => 20131209142812) do
     t.integer  "phone"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "passports", :force => true do |t|
+    t.integer  "person_id"
+    t.binary   "passport"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "people", :force => true do |t|

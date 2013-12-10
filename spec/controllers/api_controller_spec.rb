@@ -5,8 +5,24 @@ describe ApiController do
   before(:each) do 
     @company = Company.create(:address => "test", :city => "Test", :country => "Germany", :name => "Test")
     @company2 = Company.create(:address => "test2", :city => "Test2", :country => "Germany2", :name => "Test2")
+
+    @person = Person.create(:company_id => @company.id, :name => "Hans Jensen", :title => "Director")
   end
 
+  describe "GET 'check_connection'" do 
+     it "should require authentication" do 
+        get :check_connection
+        response.response_code.should == 401
+     end
+
+     it "should return OK, when connection established" do 
+        authenticate
+        get :check_connection
+        response.response_code.should == 200
+        JSON.parse(response.body)["result"].should == "OK"
+     end
+  end
+ 
   describe "POST 'create_company'" do
 
     it "requires authentication" do
@@ -16,9 +32,11 @@ describe ApiController do
 
     it "should report an error if necessary data is missing" do 
       data = {
-          :address => "Test street 22",
-          :city => "Silkeborg", 
-          :country => "Denmark"
+          :company => {:address => "Test street 22",
+                       :city => "Silkeborg", 
+                       :country => "Denmark"},
+          :persons => [{:name => "Mathias Salomonsson",
+                        :title => "Director"}]
       }
       request.env['RAW_POST_DATA'] = data.to_json
       authenticate
@@ -32,10 +50,12 @@ describe ApiController do
     
     it "should be able to create a company" do 
       data = {
-          :address => "Test street 22",
-          :city => "Silkeborg", 
-          :country => "Denmark",
-          :name => "Test"
+          :company => { :address => "Test street 22",
+                        :city => "Silkeborg", 
+                        :country => "Denmark",
+                        :name => "Test"},
+          :persons => [{:name => "Mathias Salomonsson",
+                        :title => "Director"}]
       }
       request.env['RAW_POST_DATA'] = data.to_json
       authenticate
@@ -46,7 +66,6 @@ describe ApiController do
       res = JSON.parse(response.body)
       res["result"].should == "OK"
     end
-
 
   end
 
@@ -83,11 +102,13 @@ describe ApiController do
       authenticate
       get 'get_company', :id => @company.id
       data = JSON.parse(response.body)
-      data["address"].should == @company.address
-      data["email"].should == @company.email
-      data["phone"].should == @company.phone
-      data["city"].should == @company.city
-      data["country"].should == @company.country
+      data["company"]["address"].should == @company.address
+      data["company"]["email"].should == @company.email
+      data["company"]["phone"].should == @company.phone
+      data["company"]["city"].should == @company.city
+      data["company"]["country"].should == @company.country
+      data["persons"][0]["name"].should == @person.name
+      data["persons"][0]["title"].should == @person.title
     end
   end
 
@@ -125,6 +146,7 @@ describe ApiController do
       res = JSON.parse(response.body)
       res["result"].should == "Error"
     end
+
   end
 
   describe "GET 'attach_passport'" do

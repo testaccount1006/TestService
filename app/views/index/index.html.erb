@@ -1,0 +1,36 @@
+
+
+<div id="wrapper">
+
+	<h1>Javascript client for webservice</h1>
+
+	<a href="#" class="menu_item" id="btn_create_company">Create company</a> <a href="#" class="menu_item" id="btn_list">List companies</a>
+	<br/>
+	<input type="password" id="api_token" placeholder="API Token" />
+
+	<fieldset id="create_company" class="fields">
+		<form id="creation_form">
+			<h2>Company informations</h2>
+			<div id ="errors" style="display: none;"> </div>
+			<input type="text" placeholder="Company name" name="name" required/>
+			<input type="text" placeholder="Name of the director" name="director_name" required/>
+			<input type="text" placeholder="Address" name="address" required/>
+			<input type="text" placeholder="City" name="city" required/>
+			<input type="text" placeholder="Country" name="country" required/>
+			<input type="text" placeholder="Phone" name="phone"/>
+			<input type="text" placeholder="Email" name="email"/>
+
+			<input type="submit" class="button" id="create_submit_btn" value="Create company"/>
+		</form>
+	</fieldset>
+
+	<fieldset id="companies_list" class="fields" style="display: none;">
+		<a href="#" class="menu_item" id="btn_refresh">Refresh list</a>
+		<h2>List companies</h2>
+		<ul id="ul_companies">
+		<li><a href="#">company 1</a></li>
+		<li><a href="#">company 2</a></li>
+		</ul>
+	</fieldset>
+
+</div>

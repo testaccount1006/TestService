@@ -1,0 +1,133 @@
+// Place all the styles related to the index controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+body{
+	background: none repeat scroll 0 0 #EEEEEE;
+    font-family: arial;
+    margin: 50px 0 0;
+}
+
+h1,h2{
+	text-align: center;	
+}
+
+fieldset{
+	border: 0px;
+}
+
+input{
+	display: block;
+	width: 350px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 0;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    font-size: 14pt;
+
+}
+
+#errors{
+	background: red; 
+	color: white;
+	width: 350px;
+	border: 1px solid black;
+	text-align: center;
+	margin-left: auto; 
+	margin-right: auto;
+	border-radius: 5px;
+}
+
+#wrapper{
+	background: none repeat scroll 0 0 rgba(255, 255, 255, 0.7);
+    border-radius: 5px;
+    padding: 25px;
+    text-align: left;
+    transition: all 0.3s linear 0s;
+    width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.button{
+	background: none repeat scroll 0 0 #999999;
+	transition: background 1s;
+	-webkit-transition: background 1s; /* Safari */
+    border: 0 solid;
+    border-radius: 5px;
+    color: #FFFFFF;
+    font-size: 18px;
+    padding: 15px 0;
+    transition: all 0.3s linear 0s;
+    width: 350px;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.menu_item{
+	background: none repeat scroll 0 0 #999999;
+	transition: background 1s;
+	-webkit-transition: background 1s; /* Safari */
+    border: 0 solid;
+    border-radius: 5px;
+    color: #FFFFFF;
+    padding: 5px 5px;
+    transition: all 0.3s linear 0s;
+    width: 350px;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none;
+}
+
+.button:hover, .menu_item:hover{
+	background: none repeat scroll 0 0 #66CCFF;
+}
+
+
+
+
+/* Company list */
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+ 
+li {
+  font: 200 20px/1.5 Helvetica, Verdana, sans-serif;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+}
+ 
+li:last-child {
+  border: none;
+}
+ 
+li a {
+  text-decoration: none;
+  text-align: center;
+  color: #000;
+  display: block;
+
+  
+  -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+  transition: font-size 0.3s ease, background-color 0.3s ease;
+}
+ 
+li a:hover {
+  font-size: 30px;
+  background: #f6f6f6;
+}
+
