@@ -66,8 +66,28 @@ class ApiController < ApplicationController
   end
 
 
+  # Method to upload file to database
   def attach_passport
+    data = JSON.parse(request.raw_post)
+    filename = data["filename"]
+    decoded_file = Base64.decode64(data["file"])
+    @passport = Passport.new
 
+   begin
+      file = Tempfile.new([filename.split('.').first, filename.split('.').last]) 
+      file.binmode
+      file.write decoded_file
+
+      if Passport.create(passport: file, description: filename.to_s, person_id: params[:id].to_i)
+        render :json => {:result => "OK",:message => "Successfully uploaded the passport."}
+      else
+        render :json => {:result => "Error",:message => "Failed to upload passport"}
+      end
+    rescue 
+      render :json => {:result => "Error"}
+    ensure
+      file.unlink
+    end
   end
 
 

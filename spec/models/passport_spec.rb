@@ -1,5 +1,10 @@
 require 'spec_helper'
 
 describe Passport do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "should validate binary data and description" do 
+  	p = Passport.new(:description => "test")
+  	p.valid?.should == false
+  	passport = Passport.new(:passport => "test")
+  	passport.valid?.should == false
+  end
 end

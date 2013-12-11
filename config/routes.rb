@@ -12,6 +12,6 @@ TestService::Application.routes.draw do
 
   put "api/update_company/:id" => "api#update_company"
 
-  post "api/attach_passport"
+  post "api/attach_passport/:id" => "api#attach_passport"
 
 end

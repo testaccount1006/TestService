@@ -34,12 +34,6 @@ $(document).ready(function(){
 	    });
 	}
 
-	//Trigger click
-	$("#btn_refresh").click(function(e){
-		e.preventDefault();
-		list_companies();
-	});
-
 
 	/* Handle creation of company */
 
@@ -118,13 +112,9 @@ $(document).ready(function(){
 	        headers: {'Authorization': 'Token token="'+$("#api_token").val()+'"'},
 	        success: function() { 
 	        	set_api_success();
-	        	$("#create_submit_btn").attr('value', 'Create company'); 
-	        	$("#create_submit_btn").removeAttr('disabled');
 	        },
 	        error: function() { 
 	        	set_api_error();
-	        	$("#create_submit_btn").attr('disabled', 'disabled');
-				$("#create_submit_btn").attr('value', 'Please set api key'); 
 			}
 	    });
 	}
@@ -133,11 +123,15 @@ $(document).ready(function(){
 	function set_api_success(){
 		$("#api_token").css("background-color","green"); 
 		list_companies();
+		$("#create_submit_btn").attr('value', 'Create company'); 
+	    $("#create_submit_btn").removeAttr('disabled');
 	}
 
 	// Set api_token failure
 	function set_api_error(){
 		$("#api_token").css("background-color","red"); 
+	    $("#create_submit_btn").attr('disabled', 'disabled');
+		$("#create_submit_btn").attr('value', 'Please set api key'); 
 	}	
 
 

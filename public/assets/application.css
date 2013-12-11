@@ -1,0 +1,150 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+
+ */
+
+/* line 6, ../../app/assets/stylesheets/index.css.scss */
+body {
+  background: none repeat scroll 0 0 #EEEEEE;
+  font-family: arial;
+  margin: 50px 0 0;
+}
+
+/* line 12, ../../app/assets/stylesheets/index.css.scss */
+h1, h2 {
+  text-align: center;
+}
+
+/* line 16, ../../app/assets/stylesheets/index.css.scss */
+fieldset {
+  border: 0px;
+}
+
+/* line 20, ../../app/assets/stylesheets/index.css.scss */
+input {
+  display: block;
+  width: 350px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px 0;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  font-size: 14pt;
+}
+
+/* line 34, ../../app/assets/stylesheets/index.css.scss */
+#errors {
+  background: red;
+  color: white;
+  width: 350px;
+  border: 1px solid black;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+}
+
+/* line 45, ../../app/assets/stylesheets/index.css.scss */
+#wrapper {
+  background: none repeat scroll 0 0 rgba(255, 255, 255, 0.7);
+  border-radius: 5px;
+  padding: 25px;
+  text-align: left;
+  transition: all 0.3s linear 0s;
+  width: 550px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* line 57, ../../app/assets/stylesheets/index.css.scss */
+.button {
+  background: none repeat scroll 0 0 #999999;
+  transition: background 1s;
+  -webkit-transition: background 1s;
+  /* Safari */
+  border: 0 solid;
+  border-radius: 5px;
+  color: #FFFFFF;
+  font-size: 18px;
+  padding: 15px 0;
+  transition: all 0.3s linear 0s;
+  width: 350px;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* line 73, ../../app/assets/stylesheets/index.css.scss */
+.menu_item {
+  background: none repeat scroll 0 0 #999999;
+  transition: background 1s;
+  -webkit-transition: background 1s;
+  /* Safari */
+  border: 0 solid;
+  border-radius: 5px;
+  color: #FFFFFF;
+  padding: 5px 5px;
+  transition: all 0.3s linear 0s;
+  width: 350px;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+  text-decoration: none;
+}
+
+/* line 89, ../../app/assets/stylesheets/index.css.scss */
+.button:hover, .menu_item:hover {
+  background: none repeat scroll 0 0 #66CCFF;
+}
+
+/* Company list */
+/* line 98, ../../app/assets/stylesheets/index.css.scss */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+/* line 105, ../../app/assets/stylesheets/index.css.scss */
+li {
+  font: 200 20px/1.5 Helvetica, Verdana, sans-serif;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+}
+
+/* line 111, ../../app/assets/stylesheets/index.css.scss */
+li:last-child {
+  border: none;
+}
+
+/* line 115, ../../app/assets/stylesheets/index.css.scss */
+li a {
+  text-decoration: none;
+  text-align: center;
+  color: #000;
+  display: block;
+  -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+  transition: font-size 0.3s ease, background-color 0.3s ease;
+}
+
+/* line 129, ../../app/assets/stylesheets/index.css.scss */
+li a:hover {
+  font-size: 30px;
+  background: #f6f6f6;
+}

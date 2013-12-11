@@ -149,11 +149,21 @@ describe ApiController do
 
   end
 
-  describe "GET 'attach_passport'" do
-    it "returns http success" do
-      get 'attach_passport'
+  describe "POST 'attach_passport'" do
+    it "requires authentication" do
+      post 'attach_passport', :id => @person.id
+      response.response_code.should == 401
+    end
+
+    it "should upload file" do 
+      authenticate
+      encoded_file = Base64.encode64(File.open(File.expand_path(File.join(File.dirname(__FILE__), 'test_image.png'))).read)
+      data = {file: encoded_file, filename: "testfile.png"}
+      request.env['RAW_POST_DATA'] = data.to_json  
+      post 'attach_passport', :id => @person.id
       response.should be_success
     end
+    
   end
 
 end
